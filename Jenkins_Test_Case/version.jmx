@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.2 r1790748">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="version" elementType="Argument">
+            <stringProp name="Argument.name">version</stringProp>
+            <stringProp name="Argument.value">$(response)</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="2.24" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1502313582000</longProp>
+        <longProp name="ThreadGroup.end_time">1502313582000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Count Events, 1 group by artist" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">10.1.58.171</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">https://10.1.58.171/api/version/get</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/x-www-form-urlencoded; charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Token 6s19CSPwl5sbj47IfxAdF/xDB78k/69J1lpBhb5sjq5r/gYh33wSTTNR0dEAneQ+K7V0jlixdCDMa/C/k+agKhOgiiPV0000</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Cookie</stringProp>
+                <stringProp name="Header.value">user=&quot;2|1:0|10:1504805525|4:user|80:eyJjdXN0X2lkIjogMSwgInVzZXJfaWQiOiAyLCAidXNlcl9uYW1lIjogInJvb3RAbG9jYWxob3N0In0=|34a98e098b018b563d995a491072a6bcdaaea0f532aed20082e50006dff2b15e&quot;; app_version=&quot;${response}&quot;; _xsrf=2|45aefc1a|32a7eeb1e1ff2d966a9111b80cf0040f|1504805525</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name"></stringProp>
+                <stringProp name="Header.value"></stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Count Unique, shard_key" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;view&quot;:&quot;time&quot;,&quot;table&quot;:&quot;music&quot;,&quot;drillstate&quot;:{&quot;start&quot;:1420095600000,&quot;end&quot;:1451631600000,&quot;agg_arg&quot;:&quot;userId&quot;,&quot;aggregate&quot;:[&quot;UNIQUE_COUNT&quot;],&quot;do_not_sample&quot;:&quot;true&quot;,&quot;granularity&quot;:43200000,&quot;max_groups&quot;:&quot;10&quot;,&quot;group_by&quot;:[],&quot;order_by&quot;:[{&quot;text&quot;:&quot;Count%20Events&quot;,&quot;direction&quot;:&quot;desc&quot;,&quot;type&quot;:&quot;COUNT_STAR&quot;,&quot;key&quot;:0,&quot;arg&quot;:null}],&quot;show_all_others&quot;:&quot;false&quot;,&quot;time_window&quot;:{&quot;num&quot;:&quot;0&quot;,&quot;unit&quot;:&quot;auto&quot;},&quot;time_rate&quot;:&quot;auto&quot;,&quot;y_min&quot;:&quot;auto&quot;,&quot;y_max&quot;:&quot;auto&quot;,&quot;line_type&quot;:&quot;spline&quot;,&quot;time_zone_offset&quot;:284400000,&quot;secondary_y_axis&quot;:&quot;false&quot;,&quot;filter_type&quot;:&quot;inputs&quot;,&quot;filters&quot;:{},&quot;global_filters&quot;:[]},&quot;time_labels&quot;:{&quot;start&quot;:&quot;01/01/2015 12:00:00 AM&quot;,&quot;end&quot;:&quot;01/01/2016 12:00:00 AM&quot;},&quot;client_qid&quot;:817326266228147}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">10.1.58.171</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/get_view?client_qid=817326266228147&amp;view=time</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">true</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/x-www-form-urlencoded; charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Token 6s19CSPwl5sbj47IfxAdF/xDB78k/69J1lpBhb5sjq5r/gYh33wSTTNR0dEAneQ+K7V0jlixdCDMa/C/k+agKhOgiiPV0000</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Cookie</stringProp>
+                <stringProp name="Header.value">user=&quot;2|1:0|10:1504805525|4:user|80:eyJjdXN0X2lkIjogMSwgInVzZXJfaWQiOiAyLCAidXNlcl9uYW1lIjogInJvb3RAbG9jYWxob3N0In0=|34a98e098b018b563d995a491072a6bcdaaea0f532aed20082e50006dff2b15e&quot;; app_version=${response}; _xsrf=2|45aefc1a|32a7eeb1e1ff2d966a9111b80cf0040f|1504805525</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name"></stringProp>
+                <stringProp name="Header.value"></stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <boolProp name="resetInterpreter">false</boolProp>
+          <stringProp name="script">vars.put(&quot;response&quot;, new String(data));
+${__setProperty(version,&quot;${response}&quot;)};
+ </stringProp>
+        </BeanShellPostProcessor>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1507305311000</longProp>
+        <longProp name="ThreadGroup.end_time">1507305311000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Count Unique, non_shard_key" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;view&quot;:&quot;time&quot;,&quot;table&quot;:&quot;music&quot;,&quot;drillstate&quot;:{&quot;start&quot;:1420095600000,&quot;end&quot;:1451631600000,&quot;agg_arg&quot;:&quot;firstName&quot;,&quot;aggregate&quot;:[&quot;UNIQUE_COUNT&quot;],&quot;do_not_sample&quot;:&quot;true&quot;,&quot;granularity&quot;:43200000,&quot;max_groups&quot;:&quot;10&quot;,&quot;group_by&quot;:[],&quot;order_by&quot;:[{&quot;text&quot;:&quot;Count%20Events&quot;,&quot;direction&quot;:&quot;desc&quot;,&quot;type&quot;:&quot;COUNT_STAR&quot;,&quot;key&quot;:0,&quot;arg&quot;:null}],&quot;show_all_others&quot;:&quot;false&quot;,&quot;time_window&quot;:{&quot;num&quot;:&quot;0&quot;,&quot;unit&quot;:&quot;auto&quot;},&quot;time_rate&quot;:&quot;auto&quot;,&quot;y_min&quot;:&quot;auto&quot;,&quot;y_max&quot;:&quot;auto&quot;,&quot;line_type&quot;:&quot;spline&quot;,&quot;time_zone_offset&quot;:284400000,&quot;secondary_y_axis&quot;:&quot;false&quot;,&quot;filter_type&quot;:&quot;inputs&quot;,&quot;filters&quot;:{},&quot;global_filters&quot;:[]},&quot;time_labels&quot;:{&quot;start&quot;:&quot;01/01/2015 12:00:00 AM&quot;,&quot;end&quot;:&quot;01/01/2016 12:00:00 AM&quot;},&quot;client_qid&quot;:865412810817362}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">10.1.58.171</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/get_view?client_qid=8336600173759&amp;view=time</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">true</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/x-www-form-urlencoded; charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Token 6s19CSPwl5sbj47IfxAdF/xDB78k/69J1lpBhb5sjq5r/gYh33wSTTNR0dEAneQ+K7V0jlixdCDMa/C/k+agKhOgiiPV0000</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Cookie</stringProp>
+                <stringProp name="Header.value">user=&quot;2|1:0|10:1504805525|4:user|80:eyJjdXN0X2lkIjogMSwgInVzZXJfaWQiOiAyLCAidXNlcl9uYW1lIjogInJvb3RAbG9jYWxob3N0In0=|34a98e098b018b563d995a491072a6bcdaaea0f532aed20082e50006dff2b15e&quot;; app_version=${__P(version)}; _xsrf=2|45aefc1a|32a7eeb1e1ff2d966a9111b80cf0040f|1504805525</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name"></stringProp>
+                <stringProp name="Header.value"></stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Count Unique, filtered_by_firstname" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;view&quot;:&quot;time&quot;,&quot;table&quot;:&quot;music&quot;,&quot;drillstate&quot;:{&quot;start&quot;:1417417200000,&quot;end&quot;:1448953200000,&quot;agg_arg&quot;:&quot;&quot;,&quot;aggregate&quot;:[&quot;COUNT_STAR&quot;],&quot;do_not_sample&quot;:&quot;true&quot;,&quot;granularity&quot;:604800000,&quot;max_groups&quot;:&quot;10&quot;,&quot;group_by&quot;:[],&quot;order_by&quot;:[{&quot;text&quot;:&quot;Count%20Events&quot;,&quot;direction&quot;:&quot;desc&quot;,&quot;type&quot;:&quot;COUNT_STAR&quot;,&quot;key&quot;:0,&quot;arg&quot;:null}],&quot;show_all_others&quot;:&quot;false&quot;,&quot;time_window&quot;:{&quot;num&quot;:&quot;0&quot;,&quot;unit&quot;:&quot;auto&quot;},&quot;time_rate&quot;:&quot;auto&quot;,&quot;y_min&quot;:&quot;auto&quot;,&quot;y_max&quot;:&quot;auto&quot;,&quot;line_type&quot;:&quot;spline&quot;,&quot;time_zone_offset&quot;:284400000,&quot;secondary_y_axis&quot;:&quot;false&quot;,&quot;filter_type&quot;:&quot;inputs&quot;,&quot;filters&quot;:{&quot;firstName&quot;:{&quot;matches&quot;:[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;,&quot;e&quot;,&quot;f&quot;,&quot;g&quot;,&quot;h&quot;,&quot;i&quot;,&quot;j&quot;,&quot;k&quot;,&quot;l&quot;,&quot;m&quot;,&quot;n&quot;,&quot;o&quot;,&quot;p&quot;,&quot;q&quot;,&quot;r&quot;,&quot;s&quot;,&quot;t&quot;,&quot;u&quot;,&quot;v&quot;,&quot;w&quot;,&quot;x&quot;,&quot;y&quot;,&quot;z&quot;]}},&quot;global_filters&quot;:[]},&quot;time_labels&quot;:{&quot;start&quot;:&quot;12/01/2014 12:00:00 AM&quot;,&quot;end&quot;:&quot;12/01/2015 12:00:00 AM&quot;}}&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">10.1.58.171</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/get_view?client_qid=8132692358515561&amp;view=time</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">true</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/x-www-form-urlencoded; charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Token 6s19CSPwl5sbj47IfxAdF/xDB78k/69J1lpBhb5sjq5r/gYh33wSTTNR0dEAneQ+K7V0jlixdCDMa/C/k+agKhOgiiPV0000</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Cookie</stringProp>
+                <stringProp name="Header.value">user=&quot;2|1:0|10:1504805525|4:user|80:eyJjdXN0X2lkIjogMSwgInVzZXJfaWQiOiAyLCAidXNlcl9uYW1lIjogInJvb3RAbG9jYWxob3N0In0=|34a98e098b018b563d995a491072a6bcdaaea0f532aed20082e50006dff2b15e&quot;; app_version=${__P(version)}; _xsrf=2|45aefc1a|32a7eeb1e1ff2d966a9111b80cf0040f|1504805525</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name"></stringProp>
+                <stringProp name="Header.value"></stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Count Events" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;view&quot;:&quot;time&quot;,&quot;table&quot;:&quot;music&quot;,&quot;drillstate&quot;:{&quot;start&quot;:1420095600000,&quot;end&quot;:1451631600000,&quot;agg_arg&quot;:&quot;&quot;,&quot;aggregate&quot;:[&quot;COUNT_STAR&quot;],&quot;do_not_sample&quot;:&quot;false&quot;,&quot;granularity&quot;:&quot;auto&quot;,&quot;max_groups&quot;:&quot;10&quot;,&quot;group_by&quot;:[],&quot;order_by&quot;:[{&quot;arg&quot;:null,&quot;type&quot;:&quot;COUNT_STAR&quot;,&quot;text&quot;:&quot;Count Events&quot;,&quot;key&quot;:0,&quot;direction&quot;:&quot;desc&quot;}],&quot;show_all_others&quot;:&quot;false&quot;,&quot;time_rate&quot;:&quot;auto&quot;,&quot;y_min&quot;:&quot;auto&quot;,&quot;y_max&quot;:&quot;auto&quot;,&quot;line_type&quot;:&quot;spline&quot;,&quot;time_zone_offset&quot;:284400000,&quot;secondary_y_axis&quot;:&quot;false&quot;,&quot;filter_type&quot;:&quot;text&quot;,&quot;global_filters&quot;:[],&quot;filter_text&quot;:&quot;&quot;},&quot;time_labels&quot;:{&quot;start&quot;:&quot;1420095600000&quot;,&quot;end&quot;:&quot;1451631600000&quot;},&quot;client_qid&quot;:801303955012213}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">10.1.58.171</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/get_view?client_qid=:801303955012213&amp;view=time</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">true</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/x-www-form-urlencoded; charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Token 6s19CSPwl5sbj47IfxAdF/xDB78k/69J1lpBhb5sjq5r/gYh33wSTTNR0dEAneQ+K7V0jlixdCDMa/C/k+agKhOgiiPV0000</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Cookie</stringProp>
+                <stringProp name="Header.value">user=&quot;2|1:0|10:1504805525|4:user|80:eyJjdXN0X2lkIjogMSwgInVzZXJfaWQiOiAyLCAidXNlcl9uYW1lIjogInJvb3RAbG9jYWxob3N0In0=|34a98e098b018b563d995a491072a6bcdaaea0f532aed20082e50006dff2b15e&quot;; app_version=${__P(version)}; _xsrf=2|45aefc1a|32a7eeb1e1ff2d966a9111b80cf0040f|1504805525</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name"></stringProp>
+                <stringProp name="Header.value"></stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench" enabled="true">
+      <boolProp name="WorkBench.save">true</boolProp>
+    </WorkBench>
+    <hashTree/>
+  </hashTree>
+</jmeterTestPlan>

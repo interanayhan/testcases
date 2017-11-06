@@ -1,0 +1,11 @@
+execution:
+- iterations: 100
+  concurrency: 1
+  scenario: Test1
+scenarios:
+  Test1: 2.24-CountEvents.jmx
+   little_cookies:
+    cookies:
+    - name: Cookie
+    - value: 'user="2|1:0|10:1505930752|4:user|80:eyJjdXN0X2lkIjogMSwgInVzZXJfaWQiOiAyLCAidXNlcl9uYW1lIjogInJvb3RAbG9jYWxob3N0In0=|fe69da467ff0ad9ec366ab784b24b2f8658bf731e4deb225ceef59a565fc9811"; app_version=2.24.2-QA1-260; _xsrf=2|77a699cc|9bcf2843f4ccf34c44e2559afc2025b7|1505930752'
+    - domain: 10.1.58.171

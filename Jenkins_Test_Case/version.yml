@@ -1,0 +1,65 @@
+execution:
+- iterations: 100
+  concurrency: 1
+  scenario: 
+    script: 2.24-CountEvents.jmx
+- iterations: 100
+  concurrency: 1
+  scenario:
+    script: 2.24-Count_Events-1_group_by_artist_filter_nulls.jmx
+- iterations: 100
+  concurrency: 1
+  scenario: 
+    script: 2.24-Count_Events-1_group_by_artist.jmx
+- iterations: 100
+  concurrency: 1
+  scenario: 
+    script: 2.24-Count_Events-2_group_by_first_name_last_name_filter_nulls.jmx
+- iterations: 100
+  concurrency: 1
+  scenario: 
+    script: 2.24-Count_Events-2_group_by_first_name_last_name.jmx
+- iterations: 100
+  concurrency: 1
+  scenario: 
+    script: 2.24-Count_Events-decimal_filter_on_length_greater.jmx
+- iterations: 100
+  concurrency: 1
+  scenario: 
+    script: 2.24-Count_Events-decimal_filter_on_length_lessand_equal.jmx
+- iterations: 100
+  concurrency: 1
+  scenario: 
+    script: 2.24-Count_Events-int_filter_on_sessionId_greater.jmx
+- iterations: 100
+  concurrency: 1
+  scenario: 
+    script: 2.24-Count_Events-int_filter_on_sessionId_less_than_or_equal_to.jmx
+- iterations: 100
+  concurrency: 1
+  scenario: 
+    script: 2.24-Count_Events-string_filter_on_artist_ends_with.jmx
+- iterations: 100
+  concurrency: 1
+  scenario: 
+    script: 2.24-Count_Unique-sharded.jmx
+- iterations: 100
+  concurrency: 1
+  scenario: 
+    script: 2.24-Count_Events-string_filter_on_artist_starts_with.jmx
+- iterations: 100
+  concurrency: 1
+  scenario: 
+    script: 2.24-Count_Events-string_filter_on_artist_is_not_oneof.jmx
+- iterations: 100
+  concurrency: 1
+  scenario: 
+    script: 2.24-Count_Unique-unsharded.jmx
+- iterations: 100
+  concurrency: 1
+  scenario: 
+    script: 2.24-Count_Events-string_filter_on_artist_isoneof.jmx
+- iterations: 100
+  concurrency: 1
+  scenario: 
+    script: 2.24-Count_Events-string_filter_on_artist_text_contains.jmx

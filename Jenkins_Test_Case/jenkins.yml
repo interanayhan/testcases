@@ -1,0 +1,5 @@
+execution:
+- iterations: 100
+  concurrency: 1
+  scenario: 
+    script: version.jmx
